@@ -15,7 +15,7 @@ import {
 } from "react-admin";
 
 const bookFilter = [
-    <TextInput source="q" label="Search" alwaysOn />,
+    <TextInput source="title" label="Title" alwaysOn />,
     <ReferenceInput source="categoryId" label="Category" reference="categories" allowEmpty>
         <SelectInput optionText="name" />
     </ReferenceInput>,
