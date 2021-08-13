@@ -21,7 +21,7 @@ const bookFilter = [
     </ReferenceInput>,
 ]
 
-export const BookList = (props:any) => (
+export const BookList:React.FC = (props):JSX.Element => (
     <List 
         filters={bookFilter} 
         sort={{ field: 'title', order: 'ASC' }}
@@ -48,7 +48,7 @@ export const BookList = (props:any) => (
     </List>
 );
 
-export const BookEdit = (props:any) => {
+export const BookEdit:React.FC = (props):JSX.Element => {
     //typeORM doesn't like to have id in the submission data again.
     const transform = (data:any) => {
         const {id, ...newData} = data;
@@ -73,7 +73,7 @@ export const BookEdit = (props:any) => {
     );
 }
 
-export const BookCreate = (props:any) =>{
+export const BookCreate:React.FC = (props):JSX.Element =>{
     return (
         <Create title="Create Book" {...props}>
             <SimpleForm redirect="list">

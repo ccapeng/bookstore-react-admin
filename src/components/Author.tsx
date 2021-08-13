@@ -8,18 +8,19 @@ import {
     Create
 } from "react-admin";
 
-export const PublisherList = (props:any) => (
+export const AuthorList:React.FC = (props):JSX.Element => (
     <List 
-        sort={{ field: 'name', order: 'ASC' }}
+        sort={{ field: 'firstName', order: 'ASC' }}
         {...props}
     >
         <Datagrid rowClick="edit">
-            <TextField source="name" />
+            <TextField source="lastName" />
+            <TextField source="firstName" />
         </Datagrid>
     </List>
 );
 
-export const PublisherEdit = (props:any) => {
+export const AuthorEdit:React.FC = (props):JSX.Element => {
     //typeORM doesn't like to have id in the submission data again.
     const transform = (data:any) => {
         const {id, ...newData} = data;
@@ -29,17 +30,19 @@ export const PublisherEdit = (props:any) => {
         <Edit {...props} transform={transform}>
             <SimpleForm>
                 <TextInput disabled source="id" />
-                <TextInput source="name" />
+                <TextInput source="lastName" />
+                <TextInput source="firstName" />
             </SimpleForm>
         </Edit>
     )
 }
 
-export const PublisherCreate = (props:any) =>{
+export const AuthorCreate:React.FC = (props):JSX.Element =>{
     return (
-        <Create title="Create Publisher" {...props}>
+        <Create title="Create Author" {...props}>
             <SimpleForm redirect="list">
-                <TextInput source="name" />
+                <TextInput source="lastName" />
+                <TextInput source="firstName" />
             </SimpleForm>
         </Create>
     )

@@ -1,3 +1,4 @@
+import React from "react";
 import { 
     List, 
     Datagrid, 
@@ -8,10 +9,11 @@ import {
     Create
 } from "react-admin";
 
-export const CategoryList = (props:any) => (
+
+export const CategoryList:React.FC = (props):JSX.Element => (
     <List 
-        sort={{ field: 'name', order: 'ASC' }}
         {...props}
+        sort={{ field: 'name', order: 'ASC' }}
     >
         <Datagrid rowClick="edit">
             <TextField source="name" />
@@ -19,7 +21,15 @@ export const CategoryList = (props:any) => (
     </List>
 );
 
-export const CategoryEdit = (props:any) =>{
+type categoryData = {
+    id: string,
+    name: string
+}
+type categorySubmitData = {
+    name: string
+}
+
+export const CategoryEdit:React.FC = (props): JSX.Element =>{
     //typeORM doesn't like to have id in the submission data again.
     const transform = (data:any) => {
         const {id, ...newData} = data;
@@ -38,7 +48,7 @@ export const CategoryEdit = (props:any) =>{
     )
 };
 
-export const CategoryCreate = (props:any) =>{
+export const CategoryCreate:React.FC = (props): JSX.Element =>{
     return (
         <Create 
             title="Create Category" 

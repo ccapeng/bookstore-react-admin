@@ -1,28 +1,28 @@
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
 
-import Dashboard from "./Dashboard";
+import Dashboard from "./components/Dashboard";
 import authProvider from './authProvider';
 import { 
   CategoryList, 
   CategoryEdit, 
   CategoryCreate 
-} from "./Category";
+} from "./components/Category";
 import { 
   PublisherList, 
   PublisherEdit, 
   PublisherCreate 
-} from "./Publisher";
+} from "./components/Publisher";
 import { 
   AuthorList, 
   AuthorEdit, 
   AuthorCreate 
-} from "./Author";
+} from "./components/Author";
 import { 
   BookList, 
   BookEdit, 
   BookCreate 
-} from "./Book";
+} from "./components/Book";
 
 import BookIcon from '@material-ui/icons/Book';
 import CategoryIcon from '@material-ui/icons/Folder';
@@ -31,7 +31,7 @@ import AuthorIcon from '@material-ui/icons/Person';
 
 const dataProvider = jsonServerProvider("http://127.0.0.1:8001/api");
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Admin 
       dashboard={Dashboard}
